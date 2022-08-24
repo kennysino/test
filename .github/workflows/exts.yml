@@ -26,11 +26,12 @@ jobs:
           git config --global user.name "github-actions[bot]"
           sudo timedatectl set-timezone "Asia/Shanghai"
 
-      - name: Checkout rp-ext
+      - name: Checkout pocopico rp-ext
         run: |
+          sudo rm -rf rp-ext
           git clone https://github.com/pocopico/rp-ext rp-ext
 
-      - name: Get exts
+      - name: Get pocopico exts
         uses: jannekem/run-python-script-action@v1.2
         with:
           script: |
@@ -72,7 +73,20 @@ jobs:
                             f.write(json.dumps(exts, indent=4))
                 except Exception as err:
                     print(err)
-                
+
+      - name: Checkout wjz304 rp-ext
+        run: |
+          sudo rm -rf rp-ext
+          git clone https://github.com/wjz304/rp-ext rp-ext
+
+      - name: Get wjz304 exts
+        uses: jannekem/run-python-script-action@v1.2
+        with:
+          script: |
+            import os, json
+
+            if __name__ == '__main__':
+
                 try:
                     root = '' # os.path.dirname(os.path.abspath(__file__))
                     work = 'rp-ext'

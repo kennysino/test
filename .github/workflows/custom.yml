@@ -716,7 +716,11 @@ jobs:
             exts=(${ext//,/ })
             for item in ${exts[@]}
             do
-              ./ext-manager.sh add "https://raw.githubusercontent.com/pocopico/rp-ext/master/${item}/rpext-index.json"
+              if [[ ${item} = http* ]]; then
+                ./ext-manager.sh add "${item}"
+              else
+                ./ext-manager.sh add "https://raw.githubusercontent.com/pocopico/rp-ext/master/${item}/rpext-index.json"
+              fi
             done
           fi
 

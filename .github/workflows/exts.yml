@@ -109,7 +109,7 @@ jobs:
                     print(err)
       - name: Check for changes
         run: |
-          if [ -n "$(git status -s | grep exts.json)" ];then
+          if [ -n "$(git status -s | grep exts.*json)" ];then
             echo "ischanges=true" >> $GITHUB_ENV
           else
             echo "ischanges=false" >> $GITHUB_ENV

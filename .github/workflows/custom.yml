@@ -387,16 +387,19 @@ jobs:
                         iscustom = 'false'
                         errinfo = 'usb parameter error'
 
-
                 if ext != '':
                     rpExts = {}
                     with open('exts.json', mode="r") as f:
                         rpExts = json.loads(f.read())
                     rpExts = rpExts[platform.replace('+', 'p').lower() + '_' + version.split('-')[-1]]
-                    exts = [x.strip() for x in re.split(',| |\|', ext) if x.strip() != '']
-                    if len(exts) > 0 and set(exts) <= set(rpExts):
-                        ext = ','.join(exts)
-                    else:
+                    extpocs = [x.strip() for x in re.split(',| |\|', ext) if x.strip() != '' and not x.strip().startswith('http')]
+                    ext3rds = [x.strip() for x in re.split(',| |\|', ext) if x.strip() != '' and x.strip().startswith('http')]
+                    ext = ''
+                    if len(extpocs) > 0 and set(extpocs) <= set(rpExts):
+                        ext = ','.join(extpocs)
+                    if len(ext3rds) > 0:
+                        ext = ','.join(ext3rds)
+                    if ext == '':
                         iscustom = 'false'
                         errinfo = 'ext parameter error'
 

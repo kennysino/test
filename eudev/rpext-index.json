@@ -1,0 +1,14 @@
+{
+  "id": "arpl.eudev",
+  "url": "https://raw.githubusercontent.com/wjz304/test/master/eudev/rpext-index.json",
+  "info": {
+    "name": "eudev",
+    "description": "eudev",
+    "author_url": "https://sourceforge.net/projects/acpid2/",
+    "packer_url": "https://github.com/jumkey/redpill-load/redpill-acpid",
+    "help_url": "https://github.com/jumkey/redpill-load/redpill-acpid"
+  },
+  "releases": {
+    "ds920p_42951": "https://raw.githubusercontent.com/wjz304/test/master/eudev/universal.json"
+  }
+}

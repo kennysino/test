@@ -1,0 +1,19 @@
+{
+  "files": [
+    {
+      "name": "install-eudev.sh",
+      "url": "https://raw.githubusercontent.com/wjz304/test/master/eudev/install-eudev.sh",
+      "sha256": "ee0dbf32dcbafba25f3b13af2ed9123d75aae928edac9922053e70c9a13a38ca",
+      "packed": false
+    },
+    {
+      "name": "eudev.tar.gz",
+      "url": "https://raw.githubusercontent.com/wjz304/test/master/eudev/eudev.tar.gz",
+      "sha256": "d8b513cf445b3685da51b8b54e1a4dc9344db49ca23ef297276891ff4815b4c8",
+      "packed": false
+    }
+  ],
+  "scripts": {
+    "on_os_load": "install-acpid.sh"
+  }
+}

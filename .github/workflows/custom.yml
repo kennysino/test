@@ -392,11 +392,11 @@ jobs:
 
                 if ext != '':
                     rpExts = {}
-                    if dev != '0':
-                        with open('exts.json', mode="r") as f:
-                            rpExts = json.loads(f.read())
-                    else:
+                    if dev == '1':
                         with open('exts_dev.json', mode="r") as f:
+                            rpExts = json.loads(f.read())
+                    else
+                        with open('exts.json', mode="r") as f:
                             rpExts = json.loads(f.read())
                     rpExts = rpExts[platform.replace('+', 'p').lower() + '_' + version.split('-')[-1]]
                     extpocs = [x.strip() for x in re.split(',| |\|', ext) if x.strip() != '' and not x.strip().startswith('http')]
@@ -432,6 +432,7 @@ jobs:
                 set_output('ext', ext)
                 set_output('exp', exp)
                 set_output('jun', jun)
+                set_output('dev', dev)
 
       - name: Echo Build Info
         run: |

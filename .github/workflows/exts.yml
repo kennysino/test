@@ -45,7 +45,8 @@ jobs:
                     jext = 'rpext-index.json'
                     exts = {}
 
-                    urlhost = 'https://raw.githubusercontent.com/pocopico/rp-ext/master/'
+                    urlhost1 = 'https://raw.githubusercontent.com/pocopico/rp-ext/master/'
+                    urlhost2 = 'https://github.com/pocopico/rp-ext/raw/main'
                     files = os.listdir(os.path.join(root, work))
                     print(files)
                     files.sort()
@@ -60,7 +61,7 @@ jobs:
                                     keys = data["releases"].keys()
                                     for key in keys:
                                         suffix = ''
-                                        if not os.path.exists(os.path.join(root, work, data["releases"][key].replace(urlhost, ''))):
+                                        if not os.path.exists(os.path.join(root, work, data["releases"][key].replace(urlhost1, '').replace(urlhost2, ''))):
                                             suffix = '*'
                                         if key in exts.keys():
                                             exts[key].append(file + suffix)
@@ -93,7 +94,7 @@ jobs:
                     jext = 'rpext-index.json'
                     exts = {}
 
-                    urlhost = 'https://raw.githubusercontent.com/wjz304/rp-ext/master/'
+                    urlhost1 = 'https://raw.githubusercontent.com/wjz304/rp-ext/master/'
                     files = os.listdir(os.path.join(root, work))
                     print(files)
                     files.sort()
@@ -108,7 +109,7 @@ jobs:
                                     keys = data["releases"].keys()
                                     for key in keys:
                                         suffix = ''
-                                        if not os.path.exists(os.path.join(root, work, data["releases"][key].replace(urlhost, ''))):
+                                        if not os.path.exists(os.path.join(root, work, data["releases"][key].replace(urlhost1, ''))):
                                             suffix = '*'
                                         if key in exts.keys():
                                             exts[key].append(file + suffix)

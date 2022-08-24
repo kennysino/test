@@ -395,7 +395,7 @@ jobs:
                     if dev == '1':
                         with open('exts_dev.json', mode="r") as f:
                             rpExts = json.loads(f.read())
-                    else
+                    else:
                         with open('exts.json', mode="r") as f:
                             rpExts = json.loads(f.read())
                     rpExts = rpExts[platform.replace('+', 'p').lower() + '_' + version.split('-')[-1]]

@@ -107,17 +107,22 @@ jobs:
 
                 except Exception as err:
                     print(err)
-      - name: Check for changes
+
+      - name: Check and Push
         run: |
-          if [ -n "$(git status -s | grep exts.*json)" ];then
-            echo "ischanges=true" >> $GITHUB_ENV
-          else
-            echo "ischanges=false" >> $GITHUB_ENV
+          ischanges=false
+          
+          if [ -n "$(git status -s | grep exts.json)" ]; then
+            ischanges=true
+            git add exts.json
           fi
 
-      - name: Commit and Push
-        if: env.ischanges == 'true'
-        run: |
-          git add exts.json
-          git commit -m "update $(date +%Y-%m-%d" "%H:%M:%S)"
-          git push -f
+          if [ -n "$(git status -s | grep exts_dev.json)" ]; then
+            ischanges=true
+            git add exts_dev.json
+          fi
+
+          if [ ischanges == 'true' ]; then
+            git commit -m "update $(date +%Y-%m-%d" "%H:%M:%S)"
+            git push -f
+          fi

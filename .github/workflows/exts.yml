@@ -70,10 +70,43 @@ jobs:
                         print(json.dumps(exts, indent=4))
                         with open(os.path.join(root, 'exts.json'), 'w', encoding='utf-8') as f:
                             f.write(json.dumps(exts, indent=4))
+                except Exception as err:
+                    print(err)
+                
+                try:
+                    root = '' # os.path.dirname(os.path.abspath(__file__))
+                    work = 'rp-ext'
+                    jext = 'rpext-index.json'
+                    exts = {}
+
+                    urlhost = 'https://raw.githubusercontent.com/wjz304/rp-ext/master/'
+                    files = os.listdir(os.path.join(root, work))
+                    print(files)
+                    files.sort()
+                    print(files)
+                    for file in files:
+                        if file.startswith('.') or file.startswith('redpill'):
+                            continue
+                        if os.path.isdir(os.path.join(root, work, file)):
+                            if os.path.exists(os.path.join(root, work, file, jext)):
+                                with open(os.path.join(root, work, file, jext), 'r') as f:
+                                    data = json.load(f)
+                                    keys = data["releases"].keys()
+                                    for key in keys:
+                                        suffix = ''
+                                        if not os.path.exists(os.path.join(root, work, data["releases"][key].replace(urlhost, ''))):
+                                            suffix = '*'
+                                        if key in exts.keys():
+                                            exts[key].append(file + suffix)
+                                        else:
+                                            exts[key] = [ file + suffix ]
+                    if len(exts) > 0:
+                        print(json.dumps(exts, indent=4))
+                        with open(os.path.join(root, 'exts_dev.json'), 'w', encoding='utf-8') as f:
+                            f.write(json.dumps(exts, indent=4))
 
                 except Exception as err:
                     print(err)
-
       - name: Check for changes
         run: |
           if [ -n "$(git status -s | grep exts.json)" ];then

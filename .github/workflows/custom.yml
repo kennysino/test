@@ -683,7 +683,7 @@ jobs:
 
           # 添加必备驱动
           echo "===========================添加必备驱动=========================="
-
+          echo {} > bundled-exts.json
           # #./ext-manager.sh add https://raw.githubusercontent.com/${repo}/redpill-load/${branch}/redpill-boot-wait/rpext-index.json
           # ./ext-manager.sh add https://raw.githubusercontent.com/${repo}/redpill-load/${branch}/redpill-acpid/rpext-index.json
           # ./ext-manager.sh add https://raw.githubusercontent.com/${repo}/redpill-load/${branch}/redpill-misc/rpext-index.json

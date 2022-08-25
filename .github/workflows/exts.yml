@@ -138,6 +138,7 @@ jobs:
           fi
 
           if [ ${ischanges} == 'true' ]; then
+            git status -s
             git commit -m "update $(date +%Y-%m-%d" "%H:%M:%S)"
             git push -f
           fi

@@ -651,8 +651,10 @@ jobs:
             fi
           fi
           rpext=https://raw.githubusercontent.com/pocopico/rp-ext/master
+          loadext=https://raw.githubusercontent.com/pocopico/redpill-load/develop
           if [ ${{ steps.info.outputs.dev }} == '1' ]; then 
             rpext=https://raw.githubusercontent.com/wjz304/rp-ext/master
+            loadext=https://raw.githubusercontent.com/wjz304/rp-ext/master
           fi
 
 
@@ -681,14 +683,15 @@ jobs:
 
           # 添加必备驱动
           echo "===========================添加必备驱动=========================="
+
           # #./ext-manager.sh add https://raw.githubusercontent.com/${repo}/redpill-load/${branch}/redpill-boot-wait/rpext-index.json
           # ./ext-manager.sh add https://raw.githubusercontent.com/${repo}/redpill-load/${branch}/redpill-acpid/rpext-index.json
           # ./ext-manager.sh add https://raw.githubusercontent.com/${repo}/redpill-load/${branch}/redpill-misc/rpext-index.json
           # ./ext-manager.sh add https://raw.githubusercontent.com/${repo}/redpill-load/${branch}/redpill-virtio/rpext-index.json
-          #./ext-manager.sh add https://raw.githubusercontent.com/pocopico/redpill-load/develop/redpill-boot-wait/rpext-index.json
-          ./ext-manager.sh add https://raw.githubusercontent.com/pocopico/redpill-load/develop/redpill-acpid/rpext-index.json
-          ./ext-manager.sh add https://raw.githubusercontent.com/pocopico/redpill-load/develop/redpill-misc/rpext-index.json
-          ./ext-manager.sh add https://raw.githubusercontent.com/pocopico/redpill-load/develop/redpill-virtio/rpext-index.json
+          ./ext-manager.sh add ${loadext}/redpill-boot-wait/rpext-index.json
+          ./ext-manager.sh add ${loadext}/redpill-acpid/rpext-index.json
+          ./ext-manager.sh add ${loadext}/redpill-misc/rpext-index.json
+          ./ext-manager.sh add ${loadext}/redpill-virtio/rpext-index.json
 
           # redpill.ko 方式一 
           echo "=======================Download redpill.ko======================"

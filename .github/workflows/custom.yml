@@ -683,12 +683,13 @@ jobs:
 
           # 添加必备驱动
           echo "===========================添加必备驱动=========================="
-          echo {} > bundled-exts.json
+          echo -e "{\n    "thethorgroup.boot-wait": "https://raw.githubusercontent.com/wjz304/rp-ext/master/redpill-boot-wait/rpext-index.json"\n}" > bundled-exts.json
+
           # #./ext-manager.sh add https://raw.githubusercontent.com/${repo}/redpill-load/${branch}/redpill-boot-wait/rpext-index.json
           # ./ext-manager.sh add https://raw.githubusercontent.com/${repo}/redpill-load/${branch}/redpill-acpid/rpext-index.json
           # ./ext-manager.sh add https://raw.githubusercontent.com/${repo}/redpill-load/${branch}/redpill-misc/rpext-index.json
           # ./ext-manager.sh add https://raw.githubusercontent.com/${repo}/redpill-load/${branch}/redpill-virtio/rpext-index.json
-          ./ext-manager.sh add ${loadext}/redpill-boot-wait/rpext-index.json
+          #./ext-manager.sh add ${loadext}/redpill-boot-wait/rpext-index.json
           ./ext-manager.sh add ${loadext}/redpill-acpid/rpext-index.json
           ./ext-manager.sh add ${loadext}/redpill-misc/rpext-index.json
           ./ext-manager.sh add ${loadext}/redpill-virtio/rpext-index.json

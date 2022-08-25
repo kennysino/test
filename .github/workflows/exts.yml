@@ -46,7 +46,7 @@ jobs:
                     exts = {}
 
                     urlhost1 = 'https://raw.githubusercontent.com/pocopico/rp-ext/master/'
-                    urlhost2 = 'https://github.com/pocopico/rp-ext/raw/main'
+                    urlhost2 = 'https://github.com/pocopico/rp-ext/raw/main/'
                     files = os.listdir(os.path.join(root, work))
                     print(files)
                     files.sort()
